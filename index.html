@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index,follow">
+<meta property="og:site_name" content="StoryoraCreations">
+<meta property="og:type" content="website">
 <meta name="description" content="Discover children's storybooks, preschool learning resources and creative digital printables from StoryoraCreations.">
 <meta name="theme-color" content="#f7f5ef">
 <title>StoryoraCreations | Stories, Learning & Creativity</title>
@@ -22,6 +25,8 @@ footer{background:#23392e;color:#f6f4ec;padding:42px 0 20px}.footer-grid{display
 @media(max-width:850px){.links{gap:14px}.hero-grid{gap:20px}.collections{grid-template-columns:repeat(3,1fr)}.product-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:620px){.wrap{width:min(100% - 28px,1160px)}.nav{min-height:65px}.brand{font-size:20px}.menu{display:block}.links{display:none;position:absolute;top:65px;left:0;right:0;background:#fffefa;padding:18px 22px 22px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}.links.open{display:flex}.navcta{display:none}.hero{padding:48px 0 42px}.hero-grid{grid-template-columns:1fr}.hero-art{min-height:300px}.book-stack{transform:scale(.82) rotate(-5deg)}.tag-one{left:2px;top:30px}.tag-two{right:0;bottom:20px}.stats-row{grid-template-columns:repeat(2,1fr);gap:17px}.stats strong{font-size:18px}section{padding:58px 0}.collections{grid-template-columns:repeat(2,1fr)}.collection{min-height:140px;padding:16px 13px}.product-grid{grid-template-columns:1fr 1fr;gap:10px}.cover{height:155px;padding:15px}.mini-book{width:105px;height:132px;font-size:15px}.product-body{padding:13px}.product h3{font-size:18px}.product p{font-size:10px;min-height:58px}.product-link{font-size:9px}.market-grid{grid-template-columns:1fr}.about-grid{grid-template-columns:1fr;gap:25px}.about-art{min-height:190px}.footer-grid{grid-template-columns:1fr 1fr}.footer-grid>div:first-child{grid-column:1/-1}}
 @media(max-width:380px){.product-grid{grid-template-columns:1fr}.cover{height:190px}.mini-book{width:125px;height:155px}.collections{grid-template-columns:1fr 1fr}}
+.price{font-weight:700;color:var(--green);font-size:14px;margin:8px 0 0}.market-filter{border:1px solid var(--line);border-radius:999px;padding:10px 14px;background:#fffefa;color:var(--ink);font:inherit}.toolbar{align-items:center;flex-wrap:wrap}.toolbar .search{flex:1;min-width:210px}.filters{display:flex;gap:7px;flex-wrap:wrap}.filters button{border:1px solid var(--line);background:#fffefa;color:var(--ink);border-radius:999px;padding:9px 13px;cursor:pointer}.filters button.active{background:var(--green);color:#fff;border-color:var(--green)}.catalogue-note{font-size:12px;color:var(--muted);margin:12px 0 0}.product-link{display:flex;justify-content:space-between;gap:8px;align-items:center}.product-link span:first-child{font-weight:650} .product-link:hover{color:var(--green)}
+@media(max-width:650px){.toolbar{align-items:stretch}.market-filter{width:100%}.filters{overflow:auto;flex-wrap:nowrap;padding-bottom:4px}.filters button{white-space:nowrap}}
 </style>
 </head>
 <body>
@@ -47,9 +52,9 @@ footer{background:#23392e;color:#f6f4ec;padding:42px 0 20px}.footer-grid{display
 <a class="collection" href="#products" data-jump="Other"><div class="emoji">✦</div><h3>More to discover</h3><p>Our growing digital library</p></a>
 </div></div></section>
 <section class="products-section" id="products"><div class="wrap"><div class="section-head"><div class="eyebrow">The Storyora collection</div><h2>Discover something wonderful</h2><p>Explore selected creations. Choose a product to view the current listing and purchase securely on its original marketplace.</p></div>
-<div class="toolbar"><input class="search" id="search" type="search" placeholder="⌕  Search stories, workbooks..." aria-label="Search products"><div class="filters" id="filters"><button class="active" data-filter="All">All collections</button><button data-filter="Storybooks">Storybooks</button><button data-filter="Preschool">Preschool</button><button data-filter="Other">More</button></div></div>
+<div class="toolbar"><input class="search" id="search" type="search" placeholder="⌕  Search stories, workbooks, printables..." aria-label="Search products"><select class="market-filter" id="marketFilter" aria-label="Filter by marketplace"><option value="All">All marketplaces</option><option>Gumroad</option><option>Etsy</option><option>Lulu</option></select><div class="filters" id="filters"><button class="active" data-filter="All">All products</button><button data-filter="Storybooks">Storybooks</button><button data-filter="Preschool">Preschool</button><button data-filter="Wall art">Wall art</button><button data-filter="PNG">PNG bundles</button><button data-filter="Other">Other</button></div></div><p class="catalogue-note" id="catalogueNote">Browse products from Gumroad, Etsy and Lulu. Checkout and delivery are handled by the original marketplace.</p>
 <div class="product-grid" id="productGrid" aria-live="polite"></div><div class="empty" id="empty">No matching products found. Try another search.</div></div></section>
-<section class="market" id="stores"><div class="wrap"><div class="section-head"><div class="eyebrow">Shop wherever you prefer</div><h2>Find us across our stores</h2><p>StoryoraCreations brings its growing catalogue together in one place. Purchases are completed securely on each marketplace.</p></div>
+<section class="market" id="stores"><div class="wrap"><div class="section-head"><div class="eyebrow">Shop wherever you prefer</div><h2>Find us across our stores</h2><p>Explore products from all three marketplaces in one catalogue. Each product link takes you to its original listing or shop search.</p></div>
 <div class="market-grid">
 <div class="market-card"><div class="market-icon">◉</div><div class="eyebrow">Digital downloads</div><h3>Gumroad</h3><p>Explore downloadable storybooks, preschool learning resources and digital collections.</p><a href="https://asifgee4.gumroad.com/" target="_blank" rel="noopener">Visit Gumroad store ↗</a></div>
 <div class="market-card"><div class="market-icon">✿</div><div class="eyebrow">Creative marketplace</div><h3>Etsy</h3><p>Browse printable products, PNG bundles, wall art and other creative downloads.</p><a href="https://storyoracreations.etsy.com" target="_blank" rel="noopener">Visit Etsy shop ↗</a></div>
@@ -67,27 +72,18 @@ footer{background:#23392e;color:#f6f4ec;padding:42px 0 20px}.footer-grid{display
 <footer><div class="wrap"><div class="footer-grid"><div><div class="footer-brand">StoryoraCreations</div><p>Creative learning, magical stories and beautiful printables. A growing collection by Muhammad Asif.</p></div><div><h4>Explore</h4><a href="#collections">Collections</a><a href="#products">Products</a><a href="#stores">Our stores</a><a href="#about">About us</a><a href="admin.html">Product admin</a></div><div><h4>Marketplaces</h4><a href="https://asifgee4.gumroad.com/" target="_blank" rel="noopener">Gumroad ↗</a><a href="https://storyoracreations.etsy.com" target="_blank" rel="noopener">Etsy ↗</a><a href="https://www.lulu.com/spotlight/wwwlulucomspotlightlittlelearnersbooks" target="_blank" rel="noopener">Lulu ↗</a></div></div><div class="copyright">© 2026 StoryoraCreations. All rights reserved. Marketplace names and services belong to their respective owners.</div></div></footer>
 <script>
 let allProducts=[], active='All';
-const search=document.getElementById('search'), grid=document.getElementById('productGrid');
+const search=document.getElementById('search'), grid=document.getElementById('productGrid'), marketFilter=document.getElementById('marketFilter');
 const buttons=[...document.querySelectorAll('#filters button')];
 function escapeHtml(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function card(p){
- const cover=p.image
- ? `<div class="cover ${escapeHtml(p.coverStyle||'green')}"><img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)} cover" style="max-width:100%;max-height:100%;object-fit:contain;border-radius:8px"></div>`
- : `<div class="cover ${escapeHtml(p.coverStyle||'green')}"><div class="mini-book ${escapeHtml(p.coverColor||'dark')}"><small>STORYORACREATIONS</small>${escapeHtml(p.coverTitle||p.name)}</div></div>`;
- const url=escapeHtml(p.url||'#');
- return `<article class="product" data-category="${escapeHtml(p.category)}" data-name="${escapeHtml(p.name)}">${cover}<div class="product-body"><div class="meta">${escapeHtml(p.category)} · ${escapeHtml(p.format||'Digital product')} · ${escapeHtml(p.marketplace||'Marketplace')}</div><h3>${escapeHtml(p.name)}</h3><p>${escapeHtml(p.description||'Discover this StoryoraCreations product.')}</p><a class="product-link" href="${url}" target="_blank" rel="noopener"><span>Purchase on ${escapeHtml(p.marketplace||'marketplace')}</span><span>View product ↗</span></a></div></article>`;
+ const cover=p.image ? `<div class="cover ${escapeHtml(p.coverStyle||'green')}"><img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)} cover" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:8px"></div>` : `<div class="cover ${escapeHtml(p.coverStyle||'green')}"><div class="mini-book ${escapeHtml(p.coverColor||'dark')}"><small>STORYORACREATIONS</small>${escapeHtml(p.coverTitle||p.name)}</div></div>`;
+ const price=p.price!==null && p.price!==undefined && p.price!=='' ? `<div class="price">${escapeHtml(p.currency||'USD')} ${Number(p.price).toFixed(2)}</div>` : '';
+ const label=p.marketplace==='Etsy' && p.listingLinkType==='shop-search' ? 'Find on Etsy' : `View on ${escapeHtml(p.marketplace||'marketplace')}`;
+ return `<article class="product" data-category="${escapeHtml(p.category)}" data-name="${escapeHtml(p.name)}">${cover}<div class="product-body"><div class="meta">${escapeHtml(p.category)} · ${escapeHtml(p.format||'Product')} · ${escapeHtml(p.marketplace||'Marketplace')}</div><h3>${escapeHtml(p.name)}</h3><p>${escapeHtml(p.description||'Discover this StoryoraCreations product.')}</p>${price}<a class="product-link" href="${escapeHtml(p.url||'#')}" target="_blank" rel="noopener noreferrer"><span>${label}</span><span>Open listing ↗</span></a></div></article>`;
 }
-function render(){
- const q=search.value.trim().toLowerCase();
- const shown=allProducts.filter(p=>(active==='All'||p.category===active)&&(!q||[p.name,p.description,p.category,p.marketplace].join(' ').toLowerCase().includes(q)));
- grid.innerHTML=shown.map(card).join('');
- document.getElementById('empty').style.display=shown.length?'none':'block';
-}
-fetch('products.json').then(r=>{if(!r.ok)throw Error('Could not load products.json');return r.json()})
- .then(data=>{allProducts=Array.isArray(data)?data:[];render();})
- .catch(()=>{grid.innerHTML='<p style="grid-column:1/-1;text-align:center">The product catalogue could not be loaded. Please check that products.json is uploaded beside index.html.</p>';});
-search.addEventListener('input',render);
-buttons.forEach(b=>b.addEventListener('click',()=>{active=b.dataset.filter;buttons.forEach(x=>x.classList.toggle('active',x===b));render();}));
-document.querySelectorAll('[data-jump]').forEach(a=>a.addEventListener('click',()=>{active=a.dataset.jump==='Storybooks'?'Storybooks':a.dataset.jump==='Preschool'?'Preschool':'Other';buttons.forEach(x=>x.classList.toggle('active',x.dataset.filter===active));render();}));
+function render(){const q=search.value.trim().toLowerCase(), m=marketFilter.value;const shown=allProducts.filter(p=>(active==='All'||p.category===active)&&(m==='All'||p.marketplace===m)&&(!q||[p.name,p.description,p.category,p.marketplace,p.format].join(' ').toLowerCase().includes(q)));grid.innerHTML=shown.map(card).join('');document.getElementById('empty').style.display=shown.length?'none':'block';document.getElementById('catalogueNote').textContent=`Showing ${shown.length} of ${allProducts.length} catalogue entries. Prices are shown only where available from the source listing.`;}
+fetch('products.json').then(r=>{if(!r.ok)throw Error('Could not load products.json');return r.json()}).then(data=>{allProducts=Array.isArray(data)?data:[];render();}).catch(()=>{grid.innerHTML='<p style="grid-column:1/-1;text-align:center">The product catalogue could not be loaded. Please check that products.json is uploaded beside index.html.</p>';});
+search.addEventListener('input',render);marketFilter.addEventListener('change',render);buttons.forEach(b=>b.addEventListener('click',()=>{active=b.dataset.filter;buttons.forEach(x=>x.classList.toggle('active',x===b));render();}));
+document.querySelectorAll('[data-jump]').forEach(a=>a.addEventListener('click',()=>{const wanted=a.dataset.jump;active=['Storybooks','Preschool','PNG','Wall art','Other'].includes(wanted)?wanted:'All';buttons.forEach(x=>x.classList.toggle('active',x.dataset.filter===active));render();}));
 </script>
 </body></html>
