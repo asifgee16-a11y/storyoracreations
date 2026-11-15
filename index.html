@@ -1,222 +1,93 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Explore children's storybooks, preschool workbooks, printable art and creative digital products from StoryoraCreations.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Discover children's storybooks, preschool learning resources and creative digital printables from StoryoraCreations.">
 <meta name="theme-color" content="#f7f5ef">
-<title>StoryoraCreations — Stories, Learning & Creative Printables</title>
+<title>StoryoraCreations | Stories, Learning & Creativity</title>
 <style>
-:root{
- --ink:#24332d;--ink-soft:#43544b;--muted:#718078;--paper:#fffefa;--canvas:#f7f5ef;
- --line:#e8e5dc;--green:#526f5b;--green-dark:#385442;--sage:#e8eee5;--cream:#f3eadb;
- --peach:#f6e5d9;--gold:#b88a52;--shadow:0 18px 55px rgba(43,57,47,.09);
- --serif:Georgia,"Times New Roman",serif;--sans:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
-}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--canvas);color:var(--ink);font-family:var(--sans);line-height:1.6}
-a{color:inherit}button,input,select{font:inherit}.container{width:min(1160px,calc(100% - 44px));margin:auto}
-.announcement{background:#334a3b;color:#f8f6ef;text-align:center;padding:8px 14px;font-size:11px;letter-spacing:.11em;text-transform:uppercase}
-header{position:sticky;top:0;z-index:20;background:rgba(255,254,250,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:25px}
-.brand{display:flex;align-items:center;gap:11px;text-decoration:none;min-width:max-content}
-.brand-mark{width:38px;height:38px;border-radius:50% 50% 45% 45%;display:grid;place-items:center;background:var(--sage);color:var(--green);font-size:19px}
-.brand-name{font-family:var(--serif);font-size:21px;letter-spacing:-.4px;font-weight:600}
-.navlinks{display:flex;align-items:center;gap:27px;font-size:13px;color:var(--ink-soft)}
-.navlinks a{text-decoration:none}.navlinks a:hover{color:var(--gold)}
-.nav-cta,.button{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:12px 19px;background:var(--green);color:white;text-decoration:none;border:1px solid var(--green);font-weight:650;font-size:12px;letter-spacing:.02em;transition:.2s}
-.nav-cta:hover,.button:hover{background:var(--green-dark);transform:translateY(-1px)}
-.button-outline{background:transparent;color:var(--green)}.button-outline:hover{color:white}
-.menu-toggle{display:none;background:none;border:0;font-size:24px;color:var(--ink)}
-.hero{position:relative;overflow:hidden;padding:76px 0 74px;background:
- radial-gradient(ellipse at 7% 14%,rgba(221,232,216,.85),transparent 36%),
- radial-gradient(ellipse at 91% 25%,rgba(244,225,207,.9),transparent 34%),
- linear-gradient(115deg,#faf8f2,#f5f2e9)}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:55px;align-items:center}
-.eyebrow{font-size:10px;font-weight:750;letter-spacing:.2em;text-transform:uppercase;color:var(--green)}
-h1,h2,h3,p{margin-top:0}h1{font-family:var(--serif);font-weight:500;letter-spacing:-2.5px;font-size:clamp(44px,6vw,76px);line-height:1.04;margin:18px 0 21px;max-width:650px}
-.hero-copy{font-size:15px;color:var(--muted);max-width:510px;line-height:1.85;margin-bottom:27px}
-.hero-actions{display:flex;gap:11px;flex-wrap:wrap}
-.hero-note{display:flex;gap:19px;flex-wrap:wrap;margin-top:28px;color:var(--muted);font-size:11px}
-.hero-note span:before{content:"✓";color:var(--green);font-weight:800;margin-right:7px}
-.hero-art{position:relative;min-height:390px;display:grid;place-items:center}
-.art-orbit{position:absolute;width:min(420px,100%);aspect-ratio:1;border-radius:50%;background:linear-gradient(145deg,#e6ebdf,#f4e5d5);box-shadow:inset 0 0 0 1px rgba(255,255,255,.75)}
-.book-stack{position:relative;width:270px;height:310px;transform:rotate(-5deg)}
-.book{position:absolute;border-radius:7px 15px 15px 7px;box-shadow:0 20px 35px rgba(52,62,51,.18);border:5px solid rgba(255,255,255,.65);display:flex;align-items:center;justify-content:center;text-align:center;flex-direction:column;padding:20px}
-.book small{font-size:9px;letter-spacing:.18em;text-transform:uppercase}.book strong{font:26px/1.1 var(--serif);margin:12px 0}.book em{font-size:34px;font-style:normal}
-.book.back{width:190px;height:260px;right:-8px;top:30px;background:#d8e2d4;transform:rotate(12deg)}
-.book.middle{width:205px;height:278px;left:-12px;top:54px;background:#f2ddc8;transform:rotate(-12deg)}
-.book.front{width:218px;height:292px;left:35px;top:5px;background:linear-gradient(145deg,#738b75,#435f4c);color:#fffdf5}
-.float-pill{position:absolute;background:rgba(255,254,250,.92);border:1px solid rgba(255,255,255,.9);box-shadow:var(--shadow);border-radius:999px;padding:11px 16px;font-size:11px;color:var(--ink-soft)}
-.float-one{top:38px;left:0}.float-two{bottom:40px;right:0}
-.trust-strip{background:var(--paper);border-bottom:1px solid var(--line);border-top:1px solid var(--line)}
-.trust-inner{display:flex;justify-content:center;gap:55px;flex-wrap:wrap;padding:18px 0;color:var(--muted);font-size:11px}
-.trust-inner b{color:var(--ink-soft);font-weight:650}
-.section{padding:78px 0}.section-head{max-width:650px;margin:0 auto 34px;text-align:center}
-.section-head h2{font:500 clamp(32px,4vw,45px)/1.13 var(--serif);letter-spacing:-1px;margin:12px 0}
-.section-head p{color:var(--muted);font-size:13px;line-height:1.8;margin:0}
-.category-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:13px}
-.category{display:block;text-align:left;text-decoration:none;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:19px 16px;transition:.2s}
-.category:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#d7dfd3}
-.category-icon{width:42px;height:42px;border-radius:13px;background:var(--sage);display:grid;place-items:center;font-size:20px;margin-bottom:18px}
-.category:nth-child(2) .category-icon{background:var(--peach)}.category:nth-child(3) .category-icon{background:#ece8f3}.category:nth-child(4) .category-icon{background:#f4edda}.category:nth-child(5) .category-icon{background:#e5edf0}
-.category strong{display:block;font:17px var(--serif);margin-bottom:4px}.category small{color:var(--muted);font-size:10px}
-.featured-section{background:#f0f1eb}
-.toolbar{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:28px 0 22px;flex-wrap:wrap}
-.searchbox{position:relative;flex:1;min-width:220px;max-width:390px}
-.searchbox input{width:100%;border:1px solid var(--line);border-radius:999px;padding:12px 16px 12px 42px;background:var(--paper);outline:none;font-size:12px}
-.searchbox:before{content:"⌕";position:absolute;left:16px;top:7px;font-size:23px;color:var(--muted)}
-.filters{display:flex;gap:8px;flex-wrap:wrap}
-.filters select{border:1px solid var(--line);border-radius:999px;padding:11px 14px;background:var(--paper);color:var(--ink-soft);font-size:11px;outline:none}
-.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.product-card{background:var(--paper);border:1px solid var(--line);border-radius:17px;overflow:hidden;display:flex;flex-direction:column;transition:.25s}
-.product-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-.product-cover{height:205px;position:relative;display:grid;place-items:center;overflow:hidden}
-.cover-inner{width:140px;height:174px;border-radius:5px 12px 12px 5px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:15px;box-shadow:12px 14px 25px rgba(39,49,41,.18);border:4px solid rgba(255,255,255,.62);transform:rotate(-3deg);color:#fff}
-.cover-inner .cover-symbol{font-size:39px;margin-bottom:10px}.cover-inner small{font-size:7px;letter-spacing:.16em;text-transform:uppercase}.cover-inner strong{font:19px/1.12 var(--serif);margin:8px 0}.cover-inner em{font-size:8px;font-style:normal;opacity:.85}
-.tone-mint{background:linear-gradient(140deg,#e4eee3,#cbdacb)}.tone-mint .cover-inner{background:linear-gradient(150deg,#738d78,#405d4a)}
-.tone-peach{background:linear-gradient(140deg,#f5e6da,#ead1bf)}.tone-peach .cover-inner{background:linear-gradient(150deg,#c98f72,#9c6654)}
-.tone-butter{background:linear-gradient(140deg,#f6efd8,#eadcae)}.tone-butter .cover-inner{background:linear-gradient(150deg,#c49d55,#8d713d)}
-.tone-lavender{background:linear-gradient(140deg,#ebe7f2,#d8d0e6)}.tone-lavender .cover-inner{background:linear-gradient(150deg,#7d7399,#4e4869)}
-.tone-sky{background:linear-gradient(140deg,#e3edf1,#cbdce5)}.tone-sky .cover-inner{background:linear-gradient(150deg,#62899b,#365d70)}
-.product-label{position:absolute;top:13px;left:13px;border-radius:999px;padding:6px 9px;background:rgba(255,254,250,.88);font-size:9px;font-weight:700;color:var(--ink-soft)}
-.product-content{padding:19px;display:flex;flex-direction:column;flex:1}
-.product-meta{font-size:9px;color:var(--green);text-transform:uppercase;letter-spacing:.12em;font-weight:750}
-.product-content h3{font:21px/1.18 var(--serif);margin:9px 0 7px;letter-spacing:-.3px}
-.product-content p{font-size:11px;color:var(--muted);line-height:1.7;margin:0 0 16px}
-.product-bottom{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:1px solid var(--line);padding-top:13px}
-.format{font-size:10px;color:var(--muted)}
-.product-link{font-size:10px;font-weight:750;text-decoration:none;color:var(--green);white-space:nowrap}
-.product-link:hover{text-decoration:underline}
-.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:40px}
-.marketplace-section{background:#fffefa}
-.market-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
-.market-card{border:1px solid var(--line);border-radius:18px;padding:25px;background:#fffefa;display:flex;flex-direction:column;min-height:220px}
-.market-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
-.market-logo{width:42px;height:42px;border-radius:13px;background:var(--sage);display:grid;place-items:center;font-size:19px}
-.market-card:nth-child(2) .market-logo{background:#f5e6da}.market-card:nth-child(3) .market-logo{background:#ece8f3}
-.market-card h3{font:23px var(--serif);margin:0 0 7px}.market-card p{font-size:11px;color:var(--muted);line-height:1.7;margin-bottom:20px}
-.market-card a{margin-top:auto;text-decoration:none;color:var(--green);font-size:11px;font-weight:750}
-.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:center}
-.about-art{min-height:270px;border-radius:22px;background:linear-gradient(145deg,#e3eadf,#f1e2d5);display:grid;place-items:center;font-size:90px}
-.about-copy h2{font:500 42px/1.1 var(--serif);letter-spacing:-1px;margin:12px 0}
-.about-copy p{font-size:13px;color:var(--muted);line-height:1.9}
-.values{display:flex;gap:18px;flex-wrap:wrap;margin-top:20px}.values span{font-size:10px;color:var(--green);font-weight:700}
-.faq{background:#f0f1eb}.faq-list{max-width:780px;margin:auto}.faq-item{border-bottom:1px solid #dfe4dc;padding:18px 0}.faq-item summary{cursor:pointer;list-style:none;font:18px var(--serif)}.faq-item summary::-webkit-details-marker{display:none}.faq-item p{color:var(--muted);font-size:12px;line-height:1.8;margin:12px 0 0}
-.cta-band{padding:52px 30px;text-align:center;border-radius:22px;background:linear-gradient(115deg,#3c5947,#637c67);color:#fff;margin:10px auto 70px}
-.cta-band h2{font:500 36px var(--serif);margin:0 0 10px}.cta-band p{font-size:12px;color:#e0e8df;margin-bottom:20px}.cta-band .button{background:#fff;color:var(--green);border-color:#fff}
-footer{background:#26382e;color:#f5f3eb;padding:48px 0 22px}
-.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;padding-bottom:35px}
-.footer-brand{font:24px var(--serif)}footer p,footer a{font-size:11px;color:#cbd5ca;line-height:1.8}footer a{text-decoration:none}footer a:hover{color:white}
-.footer-title{font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:#f5f3eb;font-weight:750;margin-bottom:12px}
-.footer-links{display:grid;gap:8px}.copyright{border-top:1px solid rgba(255,255,255,.13);padding-top:18px;font-size:10px;color:#aebcaf}
-@media(max-width:900px){.hero-grid{gap:20px}.category-grid{grid-template-columns:repeat(3,1fr)}.product-grid{grid-template-columns:repeat(2,1fr)}.navlinks{gap:15px}}
-@media(max-width:650px){.container{width:min(100% - 30px,560px)}.nav{height:68px}.navlinks{display:none;position:absolute;left:0;right:0;top:68px;background:var(--paper);padding:18px 22px 22px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}.navlinks.open{display:flex}.menu-toggle{display:block}.nav-cta{display:none}.hero{padding:52px 0 42px}.hero-grid{grid-template-columns:1fr;text-align:center}.hero-copy{margin-left:auto;margin-right:auto}.hero-actions,.hero-note{justify-content:center}.hero-art{min-height:315px}.art-orbit{width:300px}.book-stack{transform:scale(.82) rotate(-5deg)}.float-one{left:5px;top:15px}.float-two{right:2px;bottom:12px}.trust-inner{gap:12px 22px}.section{padding:58px 0}.category-grid{grid-template-columns:repeat(2,1fr)}.category:last-child{grid-column:1/-1}.product-grid{grid-template-columns:1fr}.product-cover{height:220px}.market-grid{grid-template-columns:1fr}.about-grid{grid-template-columns:1fr;gap:25px}.about-art{min-height:190px;font-size:70px}.about-copy h2{font-size:35px}.footer-grid{grid-template-columns:1fr 1fr;gap:25px}.footer-grid>div:first-child{grid-column:1/-1}.cta-band{padding:40px 20px}.cta-band h2{font-size:30px}}
+:root{--ink:#23352d;--muted:#69756d;--green:#466653;--green2:#dfe9df;--cream:#f7f5ef;--paper:#fffefa;--peach:#f2e1d4;--lav:#e8e4ef;--line:#e7e5dc;--gold:#b18a50;--serif:Georgia,"Times New Roman",serif;--sans:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.6}a{color:inherit;text-decoration:none}button{font:inherit}.topline{background:var(--green);color:#f9f8f1;text-align:center;padding:8px 14px;font-size:10px;letter-spacing:.2em;text-transform:uppercase}.wrap{width:min(1160px,calc(100% - 40px));margin:auto}
+header{position:sticky;top:0;z-index:10;background:rgba(255,254,250,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:11px;font: bold 23px var(--serif);white-space:nowrap}.brandmark{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#e7eee5;color:var(--green);font-size:19px}.links{display:flex;align-items:center;gap:27px;font-size:12px;color:#536157}.links a:hover{color:var(--gold)}.navcta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:999px;padding:13px 20px;background:var(--green);color:white;font-size:12px;font-weight:650;border:1px solid var(--green);transition:.2s}.navcta:hover,.btn:hover{background:#344f3e;transform:translateY(-1px)}.btn.secondary{background:transparent;color:var(--green)}.btn.secondary:hover{background:var(--green2)}.menu{display:none;background:none;border:0;font-size:25px;color:var(--ink)}
+.hero{padding:74px 0 68px;background:radial-gradient(circle at 82% 40%,#e9eadc 0,transparent 30%),linear-gradient(120deg,#f8f6ef,#f2eee5)}.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:50px}.eyebrow{font-size:10px;font-weight:750;letter-spacing:.23em;text-transform:uppercase;color:var(--green)}h1,h2,h3,p{margin-top:0}h1{font:clamp(44px,6vw,72px)/.99 var(--serif);letter-spacing:-.045em;margin:18px 0 22px;max-width:620px}h1 em{font-weight:400;color:var(--green)}.hero-copy{max-width:520px;color:var(--muted);font-size:15px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0 22px}.trust{display:flex;gap:18px;flex-wrap:wrap;color:#6b766d;font-size:10px}.trust span:before{content:"✦";color:var(--gold);margin-right:7px}.hero-art{min-height:390px;position:relative;display:grid;place-items:center}.halo{width:min(390px,90%);aspect-ratio:1;border-radius:50%;background:linear-gradient(140deg,#e4eadc,#f2e4d7);position:absolute}.book-stack{position:relative;width:245px;height:315px;transform:rotate(-5deg);filter:drop-shadow(18px 22px 18px #56644a30)}.book{position:absolute;width:205px;height:275px;border:7px solid #fffefa;border-radius:9px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:22px;color:#fffefa;font:28px/1.1 var(--serif);box-shadow:0 10px 25px #24352b20}.book small{font:8px var(--sans);letter-spacing:.2em;margin-bottom:24px}.book.back{background:#d9bba9;left:-42px;top:23px;transform:rotate(-10deg);color:#fff}.book.front{background:#526d59;right:0;top:0}.book.front:after{content:"✦";font-size:35px;margin-top:18px;color:#f0e4c8}.art-tag{position:absolute;background:#fffefa;border:1px solid #e9e4d8;border-radius:30px;padding:10px 15px;font-size:10px;box-shadow:0 8px 25px #24352b10}.tag-one{top:55px;left:0}.tag-two{bottom:44px;right:0}
+.stats{background:#fffefa;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.stats-row{display:grid;grid-template-columns:repeat(4,1fr);padding:21px 0;text-align:center}.stats strong{display:block;font:20px var(--serif)}.stats span{font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+section{padding:78px 0}.section-head{text-align:center;max-width:650px;margin:0 auto 35px}.section-head h2{font:clamp(32px,4vw,46px)/1.1 var(--serif);letter-spacing:-.025em;margin:12px 0}.section-head p{color:var(--muted);font-size:13px}.collections{display:grid;grid-template-columns:repeat(5,1fr);gap:13px}.collection{background:var(--paper);border:1px solid var(--line);border-radius:17px;padding:20px 16px;min-height:155px;transition:.2s}.collection:hover{transform:translateY(-4px);box-shadow:0 12px 28px #26382c0c}.collection .emoji{width:39px;height:39px;border-radius:12px;background:var(--green2);display:grid;place-items:center;font-size:19px;margin-bottom:15px}.collection:nth-child(2) .emoji{background:var(--peach)}.collection:nth-child(3) .emoji{background:var(--lav)}.collection:nth-child(4) .emoji{background:#f2ead7}.collection h3{font:18px var(--serif);margin:0 0 5px}.collection p{font-size:10px;color:var(--muted);margin:0}
+.products-section{background:#edf0e9}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:25px 0 22px;flex-wrap:wrap}.search{flex:1;min-width:190px;max-width:430px;border:1px solid var(--line);background:#fffefa;border-radius:30px;padding:13px 17px;color:var(--ink);outline:none}.filters{display:flex;gap:8px;flex-wrap:wrap}.filters button{border:1px solid var(--line);background:#fffefa;border-radius:30px;padding:11px 14px;color:#657167;font-size:11px;cursor:pointer}.filters button.active{background:var(--green);border-color:var(--green);color:white}.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.product{background:#fffefa;border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.2s}.product:hover{transform:translateY(-4px);box-shadow:0 15px 30px #25372b12}.cover{height:205px;display:grid;place-items:center;padding:25px;position:relative;overflow:hidden}.cover:before{content:"";position:absolute;width:240px;height:240px;border:1px solid #ffffff80;border-radius:50%}.cover.green{background:#dce7dc}.cover.peach{background:#f0dfd2}.cover.lav{background:#e6e1ed}.cover.gold{background:#eee5ce}.cover.blue{background:#dce7ec}.mini-book{position:relative;width:132px;height:166px;border:5px solid #fffefa;border-radius:5px;box-shadow:0 12px 22px #26372a25;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;color:#fffefa;font:19px/1.13 var(--serif);transform:rotate(-3deg)}.mini-book small{display:block;font:7px var(--sans);letter-spacing:.16em;margin-bottom:13px}.mini-book.dark{background:#536c59}.mini-book.terra{background:#ae806c}.mini-book.plum{background:#625776}.mini-book.ochre{background:#b28e4c}.mini-book.navy{background:#496477}.product-body{padding:18px}.meta{font-size:9px;color:#778178;letter-spacing:.13em;text-transform:uppercase}.product h3{font:22px/1.12 var(--serif);margin:8px 0}.product p{font-size:11px;color:var(--muted);min-height:43px}.product-link{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:13px;font-size:10px;color:var(--green);font-weight:700}.product-link span:first-child{color:#7b837c;font-weight:400}.empty{display:none;text-align:center;color:var(--muted);padding:30px}
+.market{background:#fffefa}.market-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.market-card{border:1px solid var(--line);border-radius:18px;padding:25px;background:#fffefa}.market-icon{width:43px;height:43px;border-radius:13px;background:var(--green2);display:grid;place-items:center;font-size:20px;margin-bottom:17px}.market-card:nth-child(2) .market-icon{background:var(--peach)}.market-card:nth-child(3) .market-icon{background:var(--lav)}.market-card h3{font:25px var(--serif);margin:0 0 8px}.market-card p{font-size:11px;color:var(--muted);min-height:44px}.market-card a{font-size:11px;font-weight:700;color:var(--green)}
+.about{background:#f1f0e9}.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:55px;align-items:center}.about-art{min-height:270px;border-radius:22px;background:linear-gradient(135deg,#e1e9df,#f1e5d8);display:grid;place-items:center;font-size:72px;letter-spacing:12px}.about h2{font:clamp(34px,4vw,48px)/1.05 var(--serif);margin:13px 0}.about p{font-size:13px;color:var(--muted)}
+.faq{background:#edf0e9}.faq-list{max-width:760px;margin:auto}.faq details{border-bottom:1px solid #d9ded5;padding:18px 4px}.faq summary{cursor:pointer;list-style:none;font:19px var(--serif);display:flex;justify-content:space-between}.faq summary:after{content:"+";font:20px var(--sans);color:var(--green)}.faq details[open] summary:after{content:"−"}.faq details p{color:var(--muted);font-size:12px;margin:12px 30px 0 0}
+.cta{padding:20px 0 75px;background:#edf0e9}.cta-box{background:linear-gradient(120deg,#3d5b47,#68806b);border-radius:22px;text-align:center;color:white;padding:52px 25px}.cta-box h2{font:clamp(30px,4vw,43px) var(--serif);margin:0 0 8px}.cta-box p{font-size:12px;color:#e3eae2}.cta-box .btn{background:#fffefa;color:var(--green);border-color:#fffefa;margin-top:10px}
+footer{background:#23392e;color:#f6f4ec;padding:42px 0 20px}.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:35px}.footer-brand{font:25px var(--serif);margin-bottom:8px}.footer p{font-size:11px;color:#c4cec4;max-width:340px}.footer h4{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#c4cec4}.footer a{display:block;font-size:11px;margin:10px 0;color:#f4f3ec}.copyright{border-top:1px solid #ffffff25;margin-top:30px;padding-top:16px;color:#bac6bc;font-size:9px}
+@media(max-width:850px){.links{gap:14px}.hero-grid{gap:20px}.collections{grid-template-columns:repeat(3,1fr)}.product-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.wrap{width:min(100% - 28px,1160px)}.nav{min-height:65px}.brand{font-size:20px}.menu{display:block}.links{display:none;position:absolute;top:65px;left:0;right:0;background:#fffefa;padding:18px 22px 22px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}.links.open{display:flex}.navcta{display:none}.hero{padding:48px 0 42px}.hero-grid{grid-template-columns:1fr}.hero-art{min-height:300px}.book-stack{transform:scale(.82) rotate(-5deg)}.tag-one{left:2px;top:30px}.tag-two{right:0;bottom:20px}.stats-row{grid-template-columns:repeat(2,1fr);gap:17px}.stats strong{font-size:18px}section{padding:58px 0}.collections{grid-template-columns:repeat(2,1fr)}.collection{min-height:140px;padding:16px 13px}.product-grid{grid-template-columns:1fr 1fr;gap:10px}.cover{height:155px;padding:15px}.mini-book{width:105px;height:132px;font-size:15px}.product-body{padding:13px}.product h3{font-size:18px}.product p{font-size:10px;min-height:58px}.product-link{font-size:9px}.market-grid{grid-template-columns:1fr}.about-grid{grid-template-columns:1fr;gap:25px}.about-art{min-height:190px}.footer-grid{grid-template-columns:1fr 1fr}.footer-grid>div:first-child{grid-column:1/-1}}
+@media(max-width:380px){.product-grid{grid-template-columns:1fr}.cover{height:190px}.mini-book{width:125px;height:155px}.collections{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
-<div class="announcement">Thoughtful stories · Playful learning · Creative printables</div>
-<header>
- <div class="container nav">
-  <a class="brand" href="#home"><span class="brand-mark">✦</span><span class="brand-name">StoryoraCreations</span></a>
-  <nav class="navlinks" id="navlinks"><a href="#home">Home</a><a href="#collections">Collections</a><a href="#shop">Explore Products</a><a href="#marketplaces">Our Stores</a><a href="#about">Our Story</a></nav>
-  <a class="nav-cta" href="#shop">Discover the collection <span>↗</span></a>
-  <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">☰</button>
- </div>
-</header>
-<main id="home">
-<section class="hero">
- <div class="container hero-grid">
-  <div>
-   <div class="eyebrow">A little wonder in every download</div>
-   <h1>Stories to treasure.<br>Learning to love.</h1>
-   <p class="hero-copy">Discover imaginative children's storybooks, playful preschool workbooks and creative printables — thoughtfully brought together by StoryoraCreations.</p>
-   <div class="hero-actions"><a class="button" href="#shop">Explore products <span>→</span></a><a class="button button-outline" href="#marketplaces">Shop our marketplaces</a></div>
-   <div class="hero-note"><span>Digital discoveries</span><span>Made for curious minds</span><span>Shop across platforms</span></div>
-  </div>
-  <div class="hero-art" aria-label="Decorative illustration of a stack of children's books">
-   <div class="art-orbit"></div>
-   <div class="book-stack">
-    <div class="book back"><small>Little learners</small><em>🌿</em><strong>Explore<br>& Grow</strong></div>
-    <div class="book middle"><small>Stories to share</small><em>🌈</em><strong>Kindness<br>Adventures</strong></div>
-    <div class="book front"><small>StoryoraCreations</small><em>✦</em><strong>Wonder<br>Begins Here</strong><small>Stories · Learning · Creativity</small></div>
-   </div>
-   <div class="float-pill float-one">✧ Made for little imaginations</div><div class="float-pill float-two">Books · Printables · More</div>
-  </div>
- </div>
-</section>
-<div class="trust-strip"><div class="container trust-inner"><span><b>01</b> Storybooks</span><span><b>02</b> Learning resources</span><span><b>03</b> Creative downloads</span><span><b>04</b> Multiple marketplaces</span></div></div>
-
-<section class="section" id="collections"><div class="container">
- <div class="section-head"><div class="eyebrow">Find your next favourite</div><h2>Explore our collections</h2><p>Browse by the kind of creativity, learning or reading you’re looking for.</p></div>
- <div class="category-grid">
-  <a class="category" href="#shop" data-filter="Storybooks"><span class="category-icon">📚</span><strong>Storybooks</strong><small>Illustrated adventures & tales</small></a>
-  <a class="category" href="#shop" data-filter="Workbooks"><span class="category-icon">✏️</span><strong>Preschool workbooks</strong><small>Practice through play</small></a>
-  <a class="category" href="#shop" data-filter="PNG Bundles"><span class="category-icon">🎨</span><strong>PNG bundles</strong><small>Clipart & creative assets</small></a>
-  <a class="category" href="#shop" data-filter="Wall Art"><span class="category-icon">🖼️</span><strong>Printable wall art</strong><small>Art for thoughtful spaces</small></a>
-  <a class="category" href="#shop" data-filter="Other"><span class="category-icon">✦</span><strong>More to discover</strong><small>Our growing digital library</small></a>
- </div>
+<div class="topline">Thoughtful stories · Playful learning · Creative printables</div>
+<header><div class="wrap nav">
+<a class="brand" href="#home"><span class="brandmark">✦</span>StoryoraCreations</a>
+<nav class="links" id="navLinks"><a href="#home">Home</a><a href="#collections">Collections</a><a href="#products">Explore products</a><a href="#stores">Our stores</a><a href="#about">Our story</a></nav>
+<a class="navcta" href="#products">Discover the collection ↗</a>
+<button class="menu" aria-label="Open navigation" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+</div></header>
+<main>
+<section class="hero" id="home"><div class="wrap hero-grid">
+<div><div class="eyebrow">A little wonder in every download</div><h1>Stories to treasure.<br><em>Learning to love.</em></h1><p class="hero-copy">Discover imaginative children's storybooks, playful preschool workbooks and creative printables — thoughtfully brought together by StoryoraCreations.</p><div class="actions"><a class="btn" href="#products">Explore products →</a><a class="btn secondary" href="#stores">Shop our marketplaces</a></div><div class="trust"><span>Digital discoveries</span><span>Made for curious minds</span><span>Shop across platforms</span></div></div>
+<div class="hero-art"><div class="halo"></div><div class="book-stack"><div class="book back"><small>STORYORACREATIONS</small>Little<br>Learning<br>Adventures</div><div class="book front"><small>STORYORACREATIONS</small>Wonder<br>Begins<br>Here</div></div><div class="art-tag tag-one">✧ Made for little imaginations</div><div class="art-tag tag-two">Books · Printables · More</div></div>
 </div></section>
-
-<section class="section featured-section" id="shop"><div class="container">
- <div class="section-head"><div class="eyebrow">The Storyora collection</div><h2>Discover something wonderful</h2><p>Explore selected products. Choose a product to view its details and purchase securely on its original marketplace.</p></div>
- <div class="toolbar">
-  <div class="searchbox"><input id="searchInput" type="search" placeholder="Search stories, workbooks..." aria-label="Search products"></div>
-  <div class="filters"><select id="categoryFilter" aria-label="Filter by category"><option value="">All categories</option><option>Storybooks</option><option>Workbooks</option><option>PNG Bundles</option><option>Wall Art</option><option>Other</option></select><select id="platformFilter" aria-label="Filter by marketplace"><option value="">All marketplaces</option><option>Gumroad</option><option>Etsy</option><option>Lulu</option></select></div>
- </div>
- <div class="product-grid" id="productGrid" aria-live="polite"></div>
- <p style="text-align:center;color:var(--muted);font-size:10px;margin:25px 0 0">Marketplace prices and availability may change. Check the original listing before purchasing.</p>
-</div></section>
-
-<section class="section marketplace-section" id="marketplaces"><div class="container">
- <div class="section-head"><div class="eyebrow">Shop wherever you prefer</div><h2>Find us across our stores</h2><p>StoryoraCreations brings its growing catalogue together in one place. Purchases are completed securely on each marketplace.</p></div>
- <div class="market-grid">
-  <article class="market-card"><div class="market-top"><span class="market-logo">◉</span><span class="eyebrow">Digital downloads</span></div><h3>Gumroad</h3><p>Explore downloadable storybooks, preschool learning resources and digital collections.</p><a href="https://asifgee4.gumroad.com/" target="_blank" rel="noopener">Visit Gumroad store ↗</a></article>
-  <article class="market-card"><div class="market-top"><span class="market-logo">✿</span><span class="eyebrow">Creative marketplace</span></div><h3>Etsy</h3><p>Browse printable products, PNG bundles, wall art and other creative downloads.</p><a href="https://storyoracreations.etsy.com/" target="_blank" rel="noopener">Visit Etsy shop ↗</a></article>
-  <article class="market-card"><div class="market-top"><span class="market-logo">▤</span><span class="eyebrow">Books & publishing</span></div><h3>Lulu</h3><p>Discover Little Learners Books and children's publications by Muhammad Asif.</p><a href="https://www.lulu.com/spotlight/wwwlulucomspotlightlittlelearnersbooks" target="_blank" rel="noopener">Visit Lulu collection ↗</a></article>
- </div>
- <div class="note" style="max-width:760px;margin:24px auto 0;text-align:center;color:var(--muted);font-size:11px">We may add more marketplaces over time. This website is a product discovery and advertising hub; each marketplace handles its own checkout, payment, fulfilment and digital delivery.</div>
-</div></section>
-
-<section class="section" id="about"><div class="container about-grid">
- <div class="about-art" aria-hidden="true">📖 ✦ 🌱</div>
- <div class="about-copy"><div class="eyebrow">A creative world by Muhammad Asif</div><h2>Welcome to StoryoraCreations</h2><p>StoryoraCreations brings together children's stories, early-learning resources and creative digital products. Through Little Learners Books and our wider collection, we aim to make reading, discovery and creativity enjoyable for young minds and the families who support them.</p><p>From first letters and playful learning activities to imaginative fantasy adventures, every collection is created to invite curiosity and spark a little wonder.</p><div class="values"><span>✦ Curiosity</span><span>✦ Imagination</span><span>✦ Learning through play</span></div></div>
-</div></section>
-
-<section class="section faq"><div class="container"><div class="section-head"><div class="eyebrow">Good to know</div><h2>Frequently asked questions</h2></div>
- <div class="faq-list">
-  <details class="faq-item"><summary>Where do I purchase a product?</summary><p>Select a product and follow its marketplace link. You will complete your purchase on Gumroad, Etsy, Lulu or the relevant selling platform.</p></details>
-  <details class="faq-item"><summary>Who processes my payment?</summary><p>The marketplace shown on the product listing processes your payment. StoryoraCreations does not collect card details or process checkout on this website.</p></details>
-  <details class="faq-item"><summary>How will I receive a digital download?</summary><p>For digital products, the marketplace provides its own download or delivery instructions after successful payment. Physical book orders, where offered, follow the publisher's fulfilment process.</p></details>
-  <details class="faq-item"><summary>Will I receive a physical book?</summary><p>Product formats differ. Please check the original listing carefully: digital products are downloads, while eligible Lulu listings may offer printed editions.</p></details>
- </div>
-</div></section>
-
-<section class="container cta-band"><h2>Let curiosity lead the way.</h2><p>Find a story, discover a new skill or add a little creativity to your day.</p><a class="button" href="#shop">Explore the collection ↗</a></section>
+<div class="stats"><div class="wrap stats-row"><div><strong>Storybooks</strong><span>Imaginative adventures</span></div><div><strong>Learning</strong><span>Playful practice</span></div><div><strong>Creativity</strong><span>Printable collections</span></div><div><strong>One place</strong><span>Multiple marketplaces</span></div></div></div>
+<section id="collections"><div class="wrap"><div class="section-head"><div class="eyebrow">Find your next favourite</div><h2>Explore our collections</h2><p>Browse by the kind of creativity, learning or reading you're looking for.</p></div>
+<div class="collections">
+<a class="collection" href="#products" data-jump="Storybooks"><div class="emoji">📚</div><h3>Storybooks</h3><p>Illustrated adventures & tales</p></a>
+<a class="collection" href="#products" data-jump="Preschool"><div class="emoji">✏️</div><h3>Preschool workbooks</h3><p>Practice through play</p></a>
+<a class="collection" href="#products" data-jump="PNG"><div class="emoji">🎨</div><h3>PNG bundles</h3><p>Clipart & creative assets</p></a>
+<a class="collection" href="#products" data-jump="Wall art"><div class="emoji">🖼️</div><h3>Printable wall art</h3><p>Art for thoughtful spaces</p></a>
+<a class="collection" href="#products" data-jump="Other"><div class="emoji">✦</div><h3>More to discover</h3><p>Our growing digital library</p></a>
+</div></div></section>
+<section class="products-section" id="products"><div class="wrap"><div class="section-head"><div class="eyebrow">The Storyora collection</div><h2>Discover something wonderful</h2><p>Explore selected creations. Choose a product to view the current listing and purchase securely on its original marketplace.</p></div>
+<div class="toolbar"><input class="search" id="search" type="search" placeholder="⌕  Search stories, workbooks..." aria-label="Search products"><div class="filters" id="filters"><button class="active" data-filter="All">All collections</button><button data-filter="Storybooks">Storybooks</button><button data-filter="Preschool">Preschool</button><button data-filter="Other">More</button></div></div>
+<div class="product-grid" id="productGrid" aria-live="polite"></div><div class="empty" id="empty">No matching products found. Try another search.</div></div></section>
+<section class="market" id="stores"><div class="wrap"><div class="section-head"><div class="eyebrow">Shop wherever you prefer</div><h2>Find us across our stores</h2><p>StoryoraCreations brings its growing catalogue together in one place. Purchases are completed securely on each marketplace.</p></div>
+<div class="market-grid">
+<div class="market-card"><div class="market-icon">◉</div><div class="eyebrow">Digital downloads</div><h3>Gumroad</h3><p>Explore downloadable storybooks, preschool learning resources and digital collections.</p><a href="https://asifgee4.gumroad.com/" target="_blank" rel="noopener">Visit Gumroad store ↗</a></div>
+<div class="market-card"><div class="market-icon">✿</div><div class="eyebrow">Creative marketplace</div><h3>Etsy</h3><p>Browse printable products, PNG bundles, wall art and other creative downloads.</p><a href="https://storyoracreations.etsy.com" target="_blank" rel="noopener">Visit Etsy shop ↗</a></div>
+<div class="market-card"><div class="market-icon">▤</div><div class="eyebrow">Books & publishing</div><h3>Lulu</h3><p>Discover Little Learners Books and children's publications by Muhammad Asif.</p><a href="https://www.lulu.com/spotlight/wwwlulucomspotlightlittlelearnersbooks" target="_blank" rel="noopener">Visit Lulu collection ↗</a></div>
+</div><p style="text-align:center;color:var(--muted);font-size:10px;margin:22px 0 0">We may add more marketplaces over time. Each marketplace handles its own checkout, payment, fulfilment and digital delivery.</p></div></section>
+<section class="about" id="about"><div class="wrap about-grid"><div class="about-art">📖 ✦ 🌱</div><div><div class="eyebrow">A creative world by Muhammad Asif</div><h2>Welcome to StoryoraCreations</h2><p>StoryoraCreations brings together children's stories, early-learning resources and creative digital products. Through Little Learners Books and our wider collection, we aim to make reading, discovery and creativity enjoyable for young minds and the families who support them.</p><p>From first letters and playful learning activities to imaginative fantasy adventures, every collection is created to invite curiosity and spark a little wonder.</p><div class="trust"><span>Curiosity</span><span>Imagination</span><span>Learning through play</span></div></div></div></section>
+<section class="faq"><div class="wrap"><div class="section-head"><div class="eyebrow">Good to know</div><h2>Frequently asked questions</h2></div><div class="faq-list">
+<details><summary>Where do I purchase a product?</summary><p>Choose a product and follow its marketplace link. The original listing opens on Gumroad, Etsy or another seller platform.</p></details>
+<details><summary>Who processes my payment?</summary><p>The marketplace shown on the product listing processes the payment. StoryoraCreations does not collect card or bank details on this website.</p></details>
+<details><summary>How will I receive a digital download?</summary><p>For digital purchases, the marketplace provides download instructions and access according to its own delivery process.</p></details>
+<details><summary>Will I receive a physical book?</summary><p>Product formats vary. Check the original marketplace listing carefully to confirm whether an item is a digital download or a printed book.</p></details>
+</div></div></section>
+<div class="cta"><div class="wrap"><div class="cta-box"><h2>Let curiosity lead the way.</h2><p>Find a story, discover a new skill or add a little creativity to your day.</p><a class="btn" href="#products">Explore the collection ↗</a></div></div></div>
 </main>
-<footer><div class="container">
- <div class="footer-grid">
-  <div><div class="footer-brand">StoryoraCreations</div><p>Creative learning, magical stories and beautiful printables.<br>A growing collection by Muhammad Asif.</p></div>
-  <div><div class="footer-title">Explore</div><div class="footer-links"><a href="#collections">Collections</a><a href="#shop">Products</a><a href="#marketplaces">Our stores</a><a href="#about">About us</a></div></div>
-  <div><div class="footer-title">Marketplaces</div><div class="footer-links"><a href="https://asifgee4.gumroad.com/" target="_blank" rel="noopener">Gumroad ↗</a><a href="https://storyoracreations.etsy.com/" target="_blank" rel="noopener">Etsy ↗</a><a href="https://www.lulu.com/spotlight/wwwlulucomspotlightlittlelearnersbooks" target="_blank" rel="noopener">Lulu ↗</a></div></div>
- </div>
- <div class="copyright">© <span id="year"></span> StoryoraCreations. All rights reserved. Marketplace names and services belong to their respective owners.</div>
-</div></footer>
+<footer><div class="wrap"><div class="footer-grid"><div><div class="footer-brand">StoryoraCreations</div><p>Creative learning, magical stories and beautiful printables. A growing collection by Muhammad Asif.</p></div><div><h4>Explore</h4><a href="#collections">Collections</a><a href="#products">Products</a><a href="#stores">Our stores</a><a href="#about">About us</a><a href="admin.html">Product admin</a></div><div><h4>Marketplaces</h4><a href="https://asifgee4.gumroad.com/" target="_blank" rel="noopener">Gumroad ↗</a><a href="https://storyoracreations.etsy.com" target="_blank" rel="noopener">Etsy ↗</a><a href="https://www.lulu.com/spotlight/wwwlulucomspotlightlittlelearnersbooks" target="_blank" rel="noopener">Lulu ↗</a></div></div><div class="copyright">© 2026 StoryoraCreations. All rights reserved. Marketplace names and services belong to their respective owners.</div></div></footer>
 <script>
-const products = [{"title": "ABC Learning Adventure", "subtitle": "40-page alphabet tracing & colouring workbook", "category": "Workbooks", "platform": "Gumroad", "format": "PDF · A4", "description": "A playful A–Z workbook with letter formation, tracing, writing practice, coloring, recognition activities and first-word vocabulary.", "url": "https://asifgee4.gumroad.com/l/bbavsx", "art": "🔤", "tone": "mint", "featured": true}, {"title": "3 Children’s Learning Storybooks Bundle", "subtitle": "Three illustrated stories in one collection", "category": "Storybooks", "platform": "Gumroad", "format": "PDF + EPUB", "description": "A collection featuring Colors Around Us, Sammy Learns to Share and Milo’s Big Adventures, with themes of discovery, kindness and friendship.", "url": "https://asifgee4.gumroad.com/l/jrceve", "art": "🌈", "tone": "peach", "featured": true}, {"title": "The Busy Little Farm", "subtitle": "A first farm-animal storybook", "category": "Storybooks", "platform": "Gumroad", "format": "PDF + EPUB · 29 pages", "description": "Join Mia as she meets friendly farm animals, learns their names and sounds, and practices simple counting.", "url": "https://asifgee4.gumroad.com/l/ysyamx", "art": "🐮", "tone": "butter", "featured": true}, {"title": "The Lantern of Moonvale — Volume 1", "subtitle": "Two magical fantasy adventures", "category": "Storybooks", "platform": "Gumroad", "format": "PDF + EPUB · 76 pages", "description": "Follow Rayan, Lumi, Niko and Spark through The Door Beneath the Hill and The Whispering Forest.", "url": "https://asifgee4.gumroad.com/l/whsxtt", "art": "🏮", "tone": "lavender", "featured": true}, {"title": "Captain Milo and the Moon Pirates", "subtitle": "A cosmic adventure about teamwork", "category": "Storybooks", "platform": "Gumroad", "format": "PDF + EPUB · 72 pages", "description": "Milo, robot BEEP and navigator Zara set out to recover stolen crystals and discover what makes a thoughtful leader.", "url": "https://asifgee4.gumroad.com/l/egsogc", "art": "🚀", "tone": "sky", "featured": false}, {"title": "Finn and the Dragon Beneath the Library", "subtitle": "A magical adventure among forgotten stories", "category": "Storybooks", "platform": "Gumroad", "format": "PDF + EPUB · 82 pages", "description": "A mysterious golden book leads Finn to a hidden library, a tiny dragon and a mystery that threatens to erase old stories.", "url": "https://asifgee4.gumroad.com/l/hfsny", "art": "🐉", "tone": "mint", "featured": false}, {"title": "Rory and the Door of a Thousand Worlds", "subtitle": "A story about choices and responsibility", "category": "Storybooks", "platform": "Gumroad", "format": "PDF + EPUB · 65 pages", "description": "Rory discovers a golden door to countless worlds and learns how his choices can affect others.", "url": "https://asifgee4.gumroad.com/l/fbibfw", "art": "🚪", "tone": "peach", "featured": false}, {"title": "The Forest That Moved at Night", "subtitle": "A curious forest adventure", "category": "Storybooks", "platform": "Gumroad", "format": "PDF + EPUB · 49 pages", "description": "Ivy and Rowan must observe clues, rethink their map and work together when familiar forest paths begin to move.", "url": "https://asifgee4.gumroad.com/l/rrwqnh", "art": "🌲", "tone": "mint", "featured": false}, {"title": "The Midnight Train to Anywhere", "subtitle": "An illustrated journey beyond imagination", "category": "Storybooks", "platform": "Gumroad", "format": "PDF + EPUB", "description": "A mysterious ticket invites Leo, Mira and Pip aboard a train bound for magical places and unexpected adventures.", "url": "https://asifgee4.gumroad.com/l/hhkzxc", "art": "🚂", "tone": "lavender", "featured": false}];
-const grid=document.getElementById('productGrid');
-const search=document.getElementById('searchInput');
-const category=document.getElementById('categoryFilter');
-const platform=document.getElementById('platformFilter');
+let allProducts=[], active='All';
+const search=document.getElementById('search'), grid=document.getElementById('productGrid');
+const buttons=[...document.querySelectorAll('#filters button')];
+function escapeHtml(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function card(p){
+ const cover=p.image
+ ? `<div class="cover ${escapeHtml(p.coverStyle||'green')}"><img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)} cover" style="max-width:100%;max-height:100%;object-fit:contain;border-radius:8px"></div>`
+ : `<div class="cover ${escapeHtml(p.coverStyle||'green')}"><div class="mini-book ${escapeHtml(p.coverColor||'dark')}"><small>STORYORACREATIONS</small>${escapeHtml(p.coverTitle||p.name)}</div></div>`;
+ const url=escapeHtml(p.url||'#');
+ return `<article class="product" data-category="${escapeHtml(p.category)}" data-name="${escapeHtml(p.name)}">${cover}<div class="product-body"><div class="meta">${escapeHtml(p.category)} · ${escapeHtml(p.format||'Digital product')} · ${escapeHtml(p.marketplace||'Marketplace')}</div><h3>${escapeHtml(p.name)}</h3><p>${escapeHtml(p.description||'Discover this StoryoraCreations product.')}</p><a class="product-link" href="${url}" target="_blank" rel="noopener"><span>Purchase on ${escapeHtml(p.marketplace||'marketplace')}</span><span>View product ↗</span></a></div></article>`;
+}
 function render(){
  const q=search.value.trim().toLowerCase();
- const filtered=products.filter(p=>(!q||(p.title+' '+p.subtitle+' '+p.description).toLowerCase().includes(q))&&(!category.value||p.category===category.value)&&(!platform.value||p.platform===platform.value));
- grid.innerHTML=filtered.length?filtered.map(p=>`<article class="product-card"><div class="product-cover tone-${p.tone}"><span class="product-label">${p.platform}</span><div class="cover-inner"><small>StoryoraCreations</small><span class="cover-symbol">${p.art}</span><strong>${p.title.replace(' — Volume 1','')}</strong><em>${p.category==='Workbooks'?'LEARN · TRACE · PLAY':'A STORY TO DISCOVER'}</em></div></div><div class="product-content"><div class="product-meta">${p.category} · ${p.format}</div><h3>${p.title}</h3><p>${p.description}</p><div class="product-bottom"><span class="format">View current price on marketplace</span><a class="product-link" href="${p.url}" target="_blank" rel="noopener">View product ↗</a></div></div></article>`).join(''):'<div class="empty">No products match those filters. Try another search or category.</div>';
+ const shown=allProducts.filter(p=>(active==='All'||p.category===active)&&(!q||[p.name,p.description,p.category,p.marketplace].join(' ').toLowerCase().includes(q)));
+ grid.innerHTML=shown.map(card).join('');
+ document.getElementById('empty').style.display=shown.length?'none':'block';
 }
-[search,category,platform].forEach(el=>el.addEventListener('input',render));
-document.querySelectorAll('[data-filter]').forEach(el=>el.addEventListener('click',()=>{category.value=el.dataset.filter;render()}));
-document.getElementById('menuToggle').addEventListener('click',()=>document.getElementById('navlinks').classList.toggle('open'));
-document.querySelectorAll('#navlinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open')));
-document.getElementById('year').textContent=new Date().getFullYear();
-render();
+fetch('products.json').then(r=>{if(!r.ok)throw Error('Could not load products.json');return r.json()})
+ .then(data=>{allProducts=Array.isArray(data)?data:[];render();})
+ .catch(()=>{grid.innerHTML='<p style="grid-column:1/-1;text-align:center">The product catalogue could not be loaded. Please check that products.json is uploaded beside index.html.</p>';});
+search.addEventListener('input',render);
+buttons.forEach(b=>b.addEventListener('click',()=>{active=b.dataset.filter;buttons.forEach(x=>x.classList.toggle('active',x===b));render();}));
+document.querySelectorAll('[data-jump]').forEach(a=>a.addEventListener('click',()=>{active=a.dataset.jump==='Storybooks'?'Storybooks':a.dataset.jump==='Preschool'?'Preschool':'Other';buttons.forEach(x=>x.classList.toggle('active',x.dataset.filter===active));render();}));
 </script>
 </body></html>

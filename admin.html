@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>StoryoraCreations | Product Admin</title>
+<style>
+:root{--ink:#23352d;--muted:#68756c;--green:#466653;--cream:#f7f5ef;--paper:#fffefa;--line:#e5e4dc;--red:#a34238}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{background:var(--paper);border-bottom:1px solid var(--line);padding:18px 0}.wrap{width:min(1000px,calc(100% - 30px));margin:auto}.brand{font: bold 22px Georgia,serif}.sub{color:var(--muted);font-size:12px;margin-top:4px}
+main{padding:28px 0 60px}.notice{background:#fff4dc;border:1px solid #ead8ae;border-radius:12px;padding:14px 16px;color:#604b22;margin-bottom:20px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}.btn{border:0;border-radius:9px;background:var(--green);color:white;padding:11px 15px;font-weight:650;cursor:pointer}.btn.light{background:#e8eee7;color:var(--green)}.btn.red{background:#a34238}.btn:disabled{opacity:.5;cursor:not-allowed}.panel{background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:20px;margin-bottom:18px}.panel h2{font:25px Georgia,serif;margin:0 0 16px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.field{display:flex;flex-direction:column;gap:5px}.field.full{grid-column:1/-1}label{font-size:12px;font-weight:700;color:#526057}input,select,textarea{width:100%;border:1px solid #d9ded6;border-radius:8px;padding:11px;background:white;color:var(--ink);font:inherit}textarea{min-height:82px;resize:vertical}.hint{font-size:11px;color:var(--muted)}.form-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}.list{display:grid;gap:10px}.item{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:11px;padding:12px}.thumb{width:54px;height:62px;border-radius:7px;background:#e1e9df;display:grid;place-items:center;overflow:hidden;flex:none}.thumb img{width:100%;height:100%;object-fit:cover}.item-main{flex:1;min-width:0}.item-main strong{display:block}.item-main small{color:var(--muted)}.item-actions{display:flex;gap:6px;flex-wrap:wrap}.item-actions button{padding:8px 10px;font-size:11px}.empty{color:var(--muted);padding:15px;text-align:center}.status{font-size:12px;color:var(--green);min-height:20px;margin-top:10px}
+@media(max-width:620px){.grid{grid-template-columns:1fr}.item{align-items:flex-start}.item-actions{flex-direction:column}.item-actions .btn{padding:7px}}
+</style></head>
+<body>
+<header><div class="wrap"><div class="brand">✦ StoryoraCreations — Product Admin</div><div class="sub">Manage your marketplace catalogue</div></div></header>
+<main class="wrap">
+<div class="notice"><strong>How publishing works:</strong> This dashboard edits a catalogue file in your browser. It does not directly change the live website. After editing, tap <b>Export products.json</b>, then upload the downloaded file to your GitHub repository, replacing the existing <code>products.json</code>. Your live catalogue updates after GitHub Pages redeploys.</div>
+<div class="toolbar"><button class="btn" id="newBtn">＋ Add new product</button><button class="btn light" id="exportBtn">Export products.json</button><button class="btn light" id="importBtn">Import products.json</button><input id="importFile" type="file" accept=".json,application/json" hidden></div>
+<section class="panel" id="formPanel" hidden>
+<h2 id="formTitle">Add a product</h2>
+<form id="productForm">
+<div class="grid">
+<div class="field full"><label for="name">Product name *</label><input id="name" required maxlength="120" placeholder="e.g. My First Numbers Workbook"></div>
+<div class="field"><label for="category">Category *</label><select id="category"><option>Storybooks</option><option>Preschool</option><option>PNG</option><option>Wall art</option><option>Other</option></select></div>
+<div class="field"><label for="marketplace">Marketplace *</label><select id="marketplace"><option>Gumroad</option><option>Etsy</option><option>Lulu</option><option>Other</option></select></div>
+<div class="field full"><label for="url">Direct product listing URL *</label><input id="url" type="url" required placeholder="https://..."><div class="hint">Paste the exact URL of this product listing, not just the store homepage.</div></div>
+<div class="field full"><label for="image">Product cover image URL (optional)</label><input id="image" type="url" placeholder="https://..."><div class="hint">Use a public HTTPS image URL. Leave blank to use a designed text cover.</div></div>
+<div class="field"><label for="format">Format / product type</label><input id="format" placeholder="PDF + EPUB, PNG bundle..."></div>
+<div class="field"><label for="coverStyle">Cover background</label><select id="coverStyle"><option value="green">Sage green</option><option value="peach">Peach</option><option value="lav">Lavender</option><option value="blue">Soft blue</option><option value="gold">Warm gold</option></select></div>
+<div class="field full"><label for="description">Short description *</label><textarea id="description" required maxlength="260" placeholder="Briefly describe what customers will discover."></textarea></div>
+</div>
+<div class="form-actions"><button class="btn" type="submit" id="saveBtn">Save product</button><button class="btn light" type="button" id="cancelBtn">Cancel</button></div>
+<div class="status" id="formStatus" aria-live="polite"></div>
+</form></section>
+<section class="panel"><h2>Your products <span id="count" style="font:13px system-ui;color:#68756c"></span></h2><div class="list" id="productList"></div></section>
+</main>
+<script>
+const defaultProductsUrl='products.json';let products=[],editingId=null;
+const $=id=>document.getElementById(id);
+function safeId(){return 'p-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,7)}
+function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+async function init(){try{const r=await fetch(defaultProductsUrl);if(!r.ok)throw Error();products=await r.json();if(!Array.isArray(products))products=[];}catch(e){products=[];}render();}
+function render(){$('count').textContent='('+products.length+')';$('productList').innerHTML=products.length?products.map(p=>`<div class="item"><div class="thumb">${p.image?`<img src="${esc(p.image)}" alt="">`:'✦'}</div><div class="item-main"><strong>${esc(p.name)}</strong><small>${esc(p.category)} · ${esc(p.marketplace)} · <a href="${esc(p.url)}" target="_blank" rel="noopener">Open listing ↗</a></small></div><div class="item-actions"><button class="btn light" onclick="editProduct('${esc(p.id)}')">Edit</button><button class="btn red" onclick="deleteProduct('${esc(p.id)}')">Delete</button></div></div>`).join(''):'<div class="empty">No products loaded. Import your products.json file or add your first product.</div>'}
+function showForm(p=null){editingId=p?.id||null;$('formTitle').textContent=p?'Edit product':'Add a product';$('name').value=p?.name||'';$('category').value=p?.category||'Storybooks';$('marketplace').value=p?.marketplace||'Gumroad';$('url').value=p?.url||'';$('image').value=p?.image||'';$('format').value=p?.format||'';$('coverStyle').value=p?.coverStyle||'green';$('description').value=p?.description||'';$('formPanel').hidden=false;$('formStatus').textContent='';window.scrollTo({top:0,behavior:'smooth'});}
+window.editProduct=id=>{const p=products.find(x=>x.id===id);if(p)showForm(p)};
+window.deleteProduct=id=>{const p=products.find(x=>x.id===id);if(p&&confirm(`Delete "${p.name}" from this catalogue?`)){products=products.filter(x=>x.id!==id);render();}};
+$('newBtn').onclick=()=>showForm();$('cancelBtn').onclick=()=>{$('formPanel').hidden=true;editingId=null};
+$('productForm').onsubmit=e=>{e.preventDefault();const url=$('url').value.trim();if(!/^https:\/\/.+/i.test(url)){alert('Please enter a valid HTTPS listing URL.');return;}
+const p={id:editingId||safeId(),name:$('name').value.trim(),category:$('category').value,marketplace:$('marketplace').value,url,image:$('image').value.trim(),format:$('format').value.trim()||'Digital product',description:$('description').value.trim(),coverStyle:$('coverStyle').value,coverTitle:$('name').value.trim(),coverColor:'dark'};
+if(editingId){const i=products.findIndex(x=>x.id===editingId);if(i>=0)products[i]=p;}else products.unshift(p);render();$('formPanel').hidden=true;editingId=null;};
+$('exportBtn').onclick=()=>{const blob=new Blob([JSON.stringify(products,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='products.json';a.click();URL.revokeObjectURL(a.href);};
+$('importBtn').onclick=()=>$('importFile').click();
+$('importFile').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const data=JSON.parse(await f.text());if(!Array.isArray(data))throw Error('The JSON must contain a product list.');products=data;render();alert('Catalogue imported. Export products.json after making any changes.');}catch(err){alert('Could not import this file: '+err.message)}e.target.value='';};
+init();
+</script></body></html>
